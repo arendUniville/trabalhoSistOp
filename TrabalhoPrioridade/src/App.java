@@ -3,15 +3,31 @@ import java.util.ArrayList;
 public class App {
 
     public static void main(String[] args) throws Exception {
+
+        int referenciaMenor = 1000000; // Serve para armazenar o menor valor de uma lista, ele é iniciado com um valor alto para que o primeiro valor encontrado já seja atribuído a esta variável.
+        int valorAnterior = 0;
+        int idValorAnterior = 0;
+        int indiceValorMenor = 0;
+        int valorAtual; 
+
+        
+        int valorMenor; // A fim de facilitar a compreensão do código no momento das comparações de valores foi criado essa variável para armazenar o valor menor.
+        int valorMaior; // A fim de facilitar a compreensão do código no momento das comparações de valores foi criado essa variável para armazenar o valor maior.
+
+        int auxiliarIdAnterior; //Serve para auxiliar a busca do Id anterior, como está sendo feito de forma dinâmica onde o contador irá trazer o índice do list, essa variável serve para pegar o índice anterior.
         
 
+
+        // Criando objeto.
         TheFrame frames[] = new TheFrame[3];
 
+        //Adicionando informação aos atributos e criando os frames
         frames[0] = new TheFrame(12, 10, 20, true, true);
-        frames[1] = new TheFrame(10, 1, 12, false, false);
-        frames[2] = new TheFrame(11, 2, 21, true, false);
+        frames[1] = new TheFrame(10, 2, 12, false, false);
+        frames[2] = new TheFrame(11, 1, 21, true, false);
         
-        System.out.println("Tamanho: " + frames.length + "\n");
+        // Mostrando quantidade de objetos.
+        System.out.println("\n\nQuantidade de frames: " + frames.length + "\n");
 
        
 
@@ -32,66 +48,43 @@ public class App {
         ArrayList<TheFrame> arrayMyFrames = new ArrayList<TheFrame>();
 
         //Adicionando frames na lista e mostrando a lista criada.
-
         for(int count = 0; count < frames.length; count++){
 
             arrayMyFrames.add(frames[count]);
 
-
         }
 
-        System.out.println("Meu array "+ arrayMyFrames);
+        System.out.println("\n=========INICIANDO=========\n");
 
-        
-
-
-
-        System.out.println("=================");
-        System.out.println("=================");
-        System.out.println("=================");
+        System.out.println("\n================ARRAY 0================");
+        System.out.println(arrayMyFrames);
+        System.out.println("====================================\n");
 
 
 
  
-        int referenciaMenor = 1000000;
-        int valorAnterior = 0;
-        int idValorAnterior;
-        int valorFinalizado;
-        int valorAtual;
-
         
-        int valorMenor;
-        int valorMaior;
-
-        int auxiliarIdAnterior;
 
 
 
-
+        //Voltas na lista de frames até que reste apenas 1 frames.
         for(int x = 0; x < (frames.length - 1); x++){
 
-            System.out.println("X: " + x);
+            referenciaMenor = 1000000;
 
+            //Volta na lista de frames para fazer todas as comparações.
             for(int i = 0; i < frames.length; i++){
-
-                System.out.println("I: " + i);
-
 
                 valorAtual = frames[i].getQuantReferencias();
 
-                System.out.println("======="+i+"=======");
 
-                System.out.println("Quant Ref atual: " + valorAtual);
-                System.out.println("Quant Ref anterior: " + valorAnterior);
-                System.out.println("referencia Menor: " + referenciaMenor);
-
-
+                //Verifica se valor atual é menor que o anterior para armazenar o menor valor para a remoção quando chegar ao fim da lista.
                 if(valorAtual < valorAnterior){
 
                     valorMenor = valorAtual;
                     valorMaior = valorAnterior;
 
-
+                    //Verifica se é a primeira volta para que o ID do valor anterior seja zerado, se não atribuirá o ID do valor anterior da lista.
                     if(i == 0){
 
                         idValorAnterior = 0;
@@ -103,37 +96,46 @@ public class App {
 
                     }
 
-
+                    //Verifica se a referencia menor encontrada é menor que o valor menor comparado anteriormente.
                     if(referenciaMenor < valorMenor){
 
                         
 
                     }else{
 
+                        indiceValorMenor = i;
                         referenciaMenor = valorAtual; //Atribui a menor quantidade referencia para fazer a configuração.
 
                     }
+/* 
+                    System.out.println("======="+i+"=======");
 
+                    System.out.print("Quant Ref atual: " + valorAtual);
+                    System.out.print(" - Quant Ref anterior: " + valorAnterior);
+                    System.out.println(" - Referencia Menor: " + referenciaMenor + "\n");
+*/
+
+
+                    //Verifica se é a última volta no list para remover e mostrar o valor que será removido.
                     if(i == (frames.length - 1)){
 
-                        valorFinalizado = frames[i].getIdFrame();
+                        auxiliarIdAnterior = i - 1;
+                        arrayMyFrames.remove(auxiliarIdAnterior);
 
-                        System.out.println("Vai remover: " + x);
-
-
-                        arrayMyFrames.remove((i - 1));
-                        System.out.print("ID Removido: " + idValorAnterior);
-                        System.out.println(" - Referência:  " + referenciaMenor);
-                        System.out.println("Finalizou no ID: " + valorFinalizado);
-
-                        System.out.println(" ");                        
-                        System.out.println("====ARRAY====");
+                        System.out.println("\n================ARRAY "+i+"================");
                         System.out.println(arrayMyFrames);
-                        System.out.println("=============");
-
+                        System.out.println("====================================\n");
+/*
+                        System.out.println("------------------------------");
+                        System.out.print("\nID Removido: " + idValorAnterior);
+                        System.out.println(" - Referência:  " + referenciaMenor);
+                        System.out.println("------------------------------");
+                                                
+                        System.out.println("\n================ARRAY================");
+                        System.out.println(arrayMyFrames);
+                        System.out.println("====================================\n");
+*/
                     }
-
-                    valorAnterior = valorAtual; //Atribuindo o valor atual para o anterior.
 
 
                 }else{
@@ -162,35 +164,43 @@ public class App {
 
                     }else{
 
+                        indiceValorMenor = i;
                         referenciaMenor = valorAtual; //Atribui a menor quantidade referencia para fazer a configuração.
 
                     }
+/* 
+                    System.out.println("======="+i+"=======");
 
+                    System.out.print("Quant Ref atual: " + valorAtual);
+                    System.out.print(" - Quant Ref anterior: " + valorAnterior);
+                    System.out.println(" - Referencia Menor: " + referenciaMenor + "\n");
+*/
 
                     if(i == (frames.length - 1)){
 
-                        valorFinalizado = frames[i].getIdFrame();
+                        arrayMyFrames.remove(indiceValorMenor);
 
-                        arrayMyFrames.remove((i - 1));
+                        System.out.println("\n================ARRAY "+i+"================");
+                        System.out.println(arrayMyFrames);
+                        System.out.println("====================================\n");
+/*
+                        System.out.println("------------------------------");
                         System.out.print("ID Removido: " + idValorAnterior);
                         System.out.println(" - Referência:  " + referenciaMenor);
-
-                        System.out.println("===============");
-
-                        System.out.println("Finalizou no ID: " + valorFinalizado);
-
-                        System.out.println(" ");                        
-                        System.out.println("====ARRAY====");
+                        System.out.println("------------------------------");
+                
+                        System.out.println("\n================ARRAY================");
                         System.out.println(arrayMyFrames);
-                        System.out.println("=============");
-                        
+                        System.out.println("====================================\n");
+*/                     
 
                     }
 
-                    valorAnterior = valorAtual;
-
+                    
 
                 }
+
+                valorAnterior = valorAtual;
 
             }
     
