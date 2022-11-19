@@ -10,54 +10,71 @@ public class App {
         frames[0] = new TheFrame(12, 10, 20, true, true);
         frames[1] = new TheFrame(10, 1, 12, false, false);
         frames[2] = new TheFrame(11, 2, 21, true, false);
+        
+        System.out.println("Tamanho: " + frames.length + "\n");
+       
+        for(int b = 0; b < frames.length; b++){
 
+            //System.out.print("Frame 1: " + "ID: " + frames[b].getIdFrame());
+            //System.out.print(" | Quant Referencias: " + frames[b].getQuantReferencias());
+            //System.out.print(" | Ultima Referencia: " + frames[b].getUltimaReferencia());
+            //System.out.print(" | BR: " + frames[b].getBr());
+            //System.out.println(" | BM: " + frames[b].getBm());
+
+        }
+
+
+        //Criando o objeto lista de frames.
+        ArrayList<TheFrame> arrayMyFrames = new ArrayList<TheFrame>();
+
+        //Adicionando frames na lista e mostrando a lista criada.
+
+        for(int count = 0; count < frames.length; count++){
+
+            arrayMyFrames.add(frames[count]);
+
+
+        }
+
+        System.out.println("Meu array "+ arrayMyFrames);
 
         
 
-        ArrayList<Integer> arrayIdFrame = new ArrayList<Integer>();
 
-        int id_frame1 = frames[0].getIdFrame();
-        int id_frame2 = frames[1].getIdFrame();
-        int id_frame3 = frames[2].getIdFrame();
 
-        arrayIdFrame.add(id_frame1);
-        arrayIdFrame.add(id_frame2);
-        arrayIdFrame.add(id_frame3);
+        System.out.println("=================");
+        System.out.println("=================");
+        System.out.println("=================");
 
 
 
-        ArrayList<Integer> arrayQuantReferencias = new ArrayList<Integer>();
-
-        int quantReferencia_frame1 = frames[0].getQuantReferencias();
-        int quantReferencia_frame2 = frames[1].getQuantReferencias();
-        int quantReferencia_frame3 = frames[2].getQuantReferencias();
-
-        arrayQuantReferencias.add(quantReferencia_frame1);
-        arrayQuantReferencias.add(quantReferencia_frame2);
-        arrayQuantReferencias.add(quantReferencia_frame3);
-        
-
-        //System.out.println(arrayQuantReferencias.size());
-
-        
+ 
         int referenciaMenor = 1000000;
         int valorAnterior = 0;
         int idValorAnterior;
+        int valorFinalizado;
+        int valorAtual;
 
         
         int valorMenor;
         int valorMaior;
 
+        for(int x = 0; x < frames.length; x++){
 
-            for(int i = 0; i < arrayQuantReferencias.size(); i++){
+            System.out.println("X: " + x);
 
-                int valorAtual = arrayQuantReferencias.get(i);
+            for(int i = 0; i < frames.length; i++){
 
-                /*System.out.println("======="+i+"=======");
+                System.out.println("I: " + i);
 
-                System.out.println("Valor atual: " + valorAtual);
-                System.out.println("Valor anterior: " + valorAnterior);
-                System.out.println("referencia Menor: " + referenciaMenor);*/
+
+                valorAtual = frames[i].getQuantReferencias();
+
+                System.out.println("======="+i+"=======");
+
+                System.out.println("Quant Ref atual: " + valorAtual);
+                System.out.println("Quant Ref anterior: " + valorAnterior);
+                System.out.println("referencia Menor: " + referenciaMenor);
 
 
                 if(valorAtual < valorAnterior){
@@ -73,7 +90,7 @@ public class App {
 
                     }else{
 
-                        idValorAnterior = (arrayIdFrame.get(i));
+                        idValorAnterior = (frames[i].getIdFrame() - 1);
 
                     }
 
@@ -88,15 +105,23 @@ public class App {
 
                     }
 
-                    if(i == (arrayQuantReferencias.size() - 1)){
+                    if(i == (frames.length - 1)){
 
-                        arrayQuantReferencias.remove(idValorAnterior);
+                        valorFinalizado = frames[i].getIdFrame();
+
+                        System.out.println("Vai remover: " + x);
+
+
+                        arrayMyFrames.remove((i - 1));
                         System.out.print("ID Removido: " + idValorAnterior);
                         System.out.println(" - Referência:  " + referenciaMenor);
+                        System.out.println("Finalizou no ID: " + valorFinalizado);
 
+                        System.out.println(" ");                        
                         System.out.println("====ARRAY====");
-                        System.out.println(arrayQuantReferencias);
+                        System.out.println(arrayMyFrames);
                         System.out.println("=============");
+
                     }
 
                 }else{
@@ -112,7 +137,7 @@ public class App {
 
                     }else{
 
-                        idValorAnterior = (arrayIdFrame.get(i) - 1);
+                        idValorAnterior = (frames[i].getIdFrame() - 1);
 
                     }
 
@@ -130,29 +155,34 @@ public class App {
                     }
 
 
-                    if(i == (arrayQuantReferencias.size() - 1)){
+                    if(i == (frames.length - 1)){
 
-                        arrayQuantReferencias.remove(idValorAnterior);
+                        valorFinalizado = frames[i].getIdFrame();
+
+                        arrayMyFrames.remove((i - 1));
                         System.out.print("ID Removido: " + idValorAnterior);
                         System.out.println(" - Referência:  " + referenciaMenor);
 
+                        System.out.println("===============");
+
+                        System.out.println("Finalizou no ID: " + valorFinalizado);
+
+                        System.out.println(" ");                        
                         System.out.println("====ARRAY====");
-                        System.out.println(arrayQuantReferencias);
+                        System.out.println(arrayMyFrames);
                         System.out.println("=============");
+                        
 
                     }
 
                 }
 
-                //System.out.println("Frame " + i + ": " + arrayQuantReferencias.get(i));
-
             }
+    
+        }
 
         
 
-        //System.out.println("Frame 1: " + frame1);
-        //System.out.println("Frame 2: " + frame2);
-        //System.out.println("Frame 3: " + frame3);
-
     }
+
 }

@@ -18,7 +18,11 @@ public class TheFrame {
     }
 
 
-    
+    public String toString(){
+
+        return "id: "+idFrame+" | QuantRef: "+quantReferencias+" | UltimaRef: "+ultimaReferencia+" | BR: "+br+" | BM: "+bm;
+        
+    }
 
 
     public int getIdFrame() {
@@ -51,7 +55,7 @@ public class TheFrame {
     }
 
 
-    public boolean isBr() {
+    public boolean getBr() {
         return br;
     }
 
@@ -61,7 +65,7 @@ public class TheFrame {
     }
 
 
-    public boolean isBm() {
+    public boolean getBm() {
         return bm;
     }
 
