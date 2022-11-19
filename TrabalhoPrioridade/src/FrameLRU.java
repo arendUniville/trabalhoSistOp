@@ -6,12 +6,19 @@ public class FrameLRU {
     public static void Main(String args[]) throws InterruptedException{
 
         // Criando objeto.
-        TheFrame frames[] = new TheFrame[3];
+        TheFrame frames[] = new TheFrame[10];
         
         //Adicionando informação aos atributos e criando os frames
-        frames[0] = new TheFrame(12, 10, 3, true, true);
-        frames[1] = new TheFrame(10, 1, 2, false, false);
-        frames[2] = new TheFrame(11, 2, 1, true, false);
+        frames[0] = new TheFrame(12, 10, 20, true, true);
+        frames[1] = new TheFrame(10, 11, 12, false, false);
+        frames[2] = new TheFrame(11, 22, 22, true, false);
+        frames[3] = new TheFrame(11, 33, 18, true, false);
+        frames[4] = new TheFrame(11, 47, 36, true, false);
+        frames[5] = new TheFrame(11, 18, 65, true, false);
+        frames[6] = new TheFrame(11, 36, 35, true, false);
+        frames[7] = new TheFrame(11, 8, 2, true, false);
+        frames[8] = new TheFrame(11, 45, 8, true, false);
+        frames[9] = new TheFrame(11, 2, 10, true, false);
         
         // Mostrando quantidade de objetos.
         System.out.println("\n\nQuantidade de frames: " + frames.length + "\n");        
@@ -93,9 +100,11 @@ public class FrameLRU {
         System.out.println("====================================\n");
 
 
+        int quantidadeDeFrames = arrayMyFrames.size();
+
 
         //Voltas na lista de frames até que reste apenas 1 frames.
-        for(int x = 0; x < arrayMyFrames.size(); x++){
+        for(int x = 0; x < quantidadeDeFrames; x++){
 
             referenciaMenor = 1000000;
             idValorAnterior = 0;
@@ -147,10 +156,10 @@ public class FrameLRU {
 
                         arrayMyFrames.remove(indiceValorMenor);
 
-                        System.out.print("\n================ Menor tempo de referência utilizada: " + referenciaMenor + " ================\n");
+                        System.out.print("\n["+(x + 1)+"°]================ Menor tempo de referência utilizada: " + referenciaMenor + " ================\n");
                         System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
                         
-                        System.out.print("Tempo de referência de referências: ");
+                        System.out.print("Tempo de referência: ");
 
                             for(int count = 0; count < arrayMyFrames.size(); count++){
 
@@ -211,10 +220,10 @@ public class FrameLRU {
 
                         arrayMyFrames.remove(indiceValorMenor);
 
-                        System.out.print("\n================ Menor tempo de referência utilizada: " + referenciaMenor + " ================\n");
+                        System.out.print("\n["+(x + 1)+"°]================ Menor tempo de referência utilizada: " + referenciaMenor + " ================\n");
                         System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
                         
-                        System.out.print("Tempo de referência de referências: ");
+                        System.out.print("Tempo de referência: ");
 
                             for(int count = 0; count < arrayMyFrames.size(); count++){
 

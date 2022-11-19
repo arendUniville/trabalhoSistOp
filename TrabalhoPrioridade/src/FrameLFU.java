@@ -6,12 +6,20 @@ public class FrameLFU {
         
 
         // Criando objeto.
-        TheFrame frames[] = new TheFrame[3];
+        TheFrame frames[] = new TheFrame[10];
         
         //Adicionando informação aos atributos e criando os frames
         frames[0] = new TheFrame(12, 10, 20, true, true);
-        frames[1] = new TheFrame(10, 1, 12, false, false);
-        frames[2] = new TheFrame(11, 2, 21, true, false);
+        frames[1] = new TheFrame(10, 11, 12, false, false);
+        frames[2] = new TheFrame(11, 22, 21, true, false);
+        frames[3] = new TheFrame(11, 33, 21, true, false);
+        frames[4] = new TheFrame(11, 47, 21, true, false);
+        frames[5] = new TheFrame(11, 18, 21, true, false);
+        frames[6] = new TheFrame(11, 36, 21, true, false);
+        frames[7] = new TheFrame(11, 8, 21, true, false);
+        frames[8] = new TheFrame(11, 45, 21, true, false);
+        frames[9] = new TheFrame(11, 2, 21, true, false);
+
         
         // Mostrando quantidade de objetos.
         System.out.println("\n\nQuantidade de frames: " + frames.length + "\n");        
@@ -93,9 +101,11 @@ public class FrameLFU {
         System.out.println("====================================\n");
 
 
+        int quantidadeDeFrames = arrayMyFrames.size();
+
 
         //Voltas na lista de frames até que reste apenas 1 frames.
-        for(int x = 0; x < arrayMyFrames.size(); x++){
+        for(int x = 0; x < quantidadeDeFrames; x++){
 
             referenciaMenor = 1000000;
             idValorAnterior = 0;
@@ -147,10 +157,10 @@ public class FrameLFU {
 
                         arrayMyFrames.remove(indiceValorMenor);
 
-                        System.out.print("\n================ Menor quantidade de referência utilizada: " + referenciaMenor + " ================\n");
+                        System.out.print("\n["+(x + 1)+"°]================ Menor quantidade de referência utilizada: " + referenciaMenor + " ================\n");
                         System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
                         
-                        System.out.print("Quantidade de referência de referências: ");
+                        System.out.print("Lista de referências: ");
 
                             for(int count = 0; count < arrayMyFrames.size(); count++){
 
@@ -211,10 +221,10 @@ public class FrameLFU {
 
                         arrayMyFrames.remove(indiceValorMenor);
 
-                        System.out.print("\n================ Menor quantidade de referência utilizada: " + referenciaMenor + " ================\n");
+                        System.out.print("\n["+(x + 1)+"°]================ Menor quantidade de referência utilizada: " + referenciaMenor + " ================\n");
                         System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
                         
-                        System.out.print("Quantidade de referência de referências: ");
+                        System.out.print("Lista de referências: ");
 
                             for(int count = 0; count < arrayMyFrames.size(); count++){
 
