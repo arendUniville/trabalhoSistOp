@@ -23,8 +23,8 @@ public class App {
 
         //Adicionando informação aos atributos e criando os frames
         frames[0] = new TheFrame(12, 10, 20, true, true);
-        frames[1] = new TheFrame(10, 2, 12, false, false);
-        frames[2] = new TheFrame(11, 1, 21, true, false);
+        frames[1] = new TheFrame(10, 1, 12, false, false);
+        frames[2] = new TheFrame(11, 2, 21, true, false);
         
         // Mostrando quantidade de objetos.
         System.out.println("\n\nQuantidade de frames: " + frames.length + "\n");
@@ -78,7 +78,10 @@ public class App {
             //Volta na lista de frames para fazer todas as comparações.
             for(int i = 0; i < arrayMyFrames.size(); i++){
 
-                valorAtual = frames[i].getQuantReferencias();
+                TheFrame theValorAtual = arrayMyFrames.get(i);
+
+                valorAtual = theValorAtual.getQuantReferencias();
+
 
 
                 //Verifica se valor atual é menor que o anterior para armazenar o menor valor para a remoção quando chegar ao fim da lista.
