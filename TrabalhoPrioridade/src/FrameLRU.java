@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 
-public class FrameLFU {
+public class FrameLRU {
+    
 
     public static void Main(String args[]) throws InterruptedException{
-        
 
         // Criando objeto.
         TheFrame frames[] = new TheFrame[3];
         
         //Adicionando informação aos atributos e criando os frames
-        frames[0] = new TheFrame(12, 10, 20, true, true);
-        frames[1] = new TheFrame(10, 1, 12, false, false);
-        frames[2] = new TheFrame(11, 2, 21, true, false);
+        frames[0] = new TheFrame(12, 10, 3, true, true);
+        frames[1] = new TheFrame(10, 1, 2, false, false);
+        frames[2] = new TheFrame(11, 2, 1, true, false);
         
         // Mostrando quantidade de objetos.
         System.out.println("\n\nQuantidade de frames: " + frames.length + "\n");        
@@ -27,14 +27,14 @@ public class FrameLFU {
         }
 
         
-        System.out.println("\n========= Iniciando modelo LFU =========\n");
+        System.out.println("\n========= Iniciando modelo LRU =========\n");
 
         for(int count = 1; count <= 3; count++){
 
             if(count == 3){
 
                 System.out.println(count+".");
-                Thread.sleep(2200);
+                Thread.sleep(1800);
 
             }else{
 
@@ -73,18 +73,18 @@ public class FrameLFU {
         System.out.println(arrayMyFrames);
         System.out.println("====================================\n");
 
-        System.out.print("\n================ Array quantidade de referências ================\n");
+        System.out.print("\n================ Array tempo de referência de referências ================\n");
             for(int count = 0; count < arrayMyFrames.size(); count++){
 
                 TheFrame quantReferenciaParaArray = arrayMyFrames.get(count);
 
                 if(count == 0){
                     
-                    System.out.print("{ " + quantReferenciaParaArray.getQuantReferencias());
+                    System.out.print("{ " + quantReferenciaParaArray.getUltimaReferencia());
 
                 }else{
 
-                    System.out.print(", " + quantReferenciaParaArray.getQuantReferencias());
+                    System.out.print(", " + quantReferenciaParaArray.getUltimaReferencia());
 
                 }
 
@@ -107,7 +107,7 @@ public class FrameLFU {
 
                 TheFrame theValorAtual = arrayMyFrames.get(i);
 
-                valorAtual = theValorAtual.getQuantReferencias();
+                valorAtual = theValorAtual.getUltimaReferencia();
 
 
 
@@ -147,10 +147,10 @@ public class FrameLFU {
 
                         arrayMyFrames.remove(indiceValorMenor);
 
-                        System.out.print("\n================ Menor quantidade de referência utilizada: " + referenciaMenor + " ================\n");
+                        System.out.print("\n================ Menor tempo de referência utilizada: " + referenciaMenor + " ================\n");
                         System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
                         
-                        System.out.print("Quantidade de referência de referências: ");
+                        System.out.print("Tempo de referência de referências: ");
 
                             for(int count = 0; count < arrayMyFrames.size(); count++){
 
@@ -158,11 +158,11 @@ public class FrameLFU {
 
                                 if(count == 0){
                                     
-                                    System.out.print("{ " + quantReferenciaParaArray.getQuantReferencias());
+                                    System.out.print("{ " + quantReferenciaParaArray.getUltimaReferencia());
 
                                 }else{
 
-                                    System.out.print(", " + quantReferenciaParaArray.getQuantReferencias());
+                                    System.out.print(", " + quantReferenciaParaArray.getUltimaReferencia());
 
                                 }
 
@@ -211,10 +211,10 @@ public class FrameLFU {
 
                         arrayMyFrames.remove(indiceValorMenor);
 
-                        System.out.print("\n================ Menor quantidade de referência utilizada: " + referenciaMenor + " ================\n");
+                        System.out.print("\n================ Menor tempo de referência utilizada: " + referenciaMenor + " ================\n");
                         System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
                         
-                        System.out.print("Quantidade de referência de referências: ");
+                        System.out.print("Tempo de referência de referências: ");
 
                             for(int count = 0; count < arrayMyFrames.size(); count++){
 
@@ -222,11 +222,11 @@ public class FrameLFU {
 
                                 if(count == 0){
                                     
-                                    System.out.print("{ " + quantReferenciaParaArray.getQuantReferencias());
+                                    System.out.print("{ " + quantReferenciaParaArray.getUltimaReferencia());
 
                                 }else{
 
-                                    System.out.print(", " + quantReferenciaParaArray.getQuantReferencias());
+                                    System.out.print(", " + quantReferenciaParaArray.getUltimaReferencia());
 
                                 }
 
@@ -234,7 +234,8 @@ public class FrameLFU {
                             System.out.print(" }\n");
                         
                            
-                        System.out.println("====================================\n");               
+                        System.out.println("====================================\n");
+
 
                     }
 
@@ -249,7 +250,7 @@ public class FrameLFU {
         }
 
 
-        System.out.println("\n========= Finalizando modelo LFU (50s) =========\n");
+        System.out.println("\n========= Finalizando modelo LRU (50s) =========\n");
 
         for(int count = 1; count <= 50; count++){
 
@@ -278,4 +279,6 @@ public class FrameLFU {
 
     }
     
+
 }
+

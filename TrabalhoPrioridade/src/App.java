@@ -22,28 +22,34 @@ public class App {
 
             case 1:
 
+
                 break;
 
             case 2:
 
-                break;
-
-
-            case 3:
- 
                 FrameLFU frameLFU = new FrameLFU();
 
                 FrameLFU.Main(args);
 
+                break;
+
+            case 3:
+ 
+                FrameLRU frameLRU = new FrameLRU();
+
+                FrameLRU.Main(args);
+                
+                break;
+
             case 4:
 
 
-
+                break;
 
             default:
 
-                System.out.println("Usuário escolheu nenhuma das escolhas válidas");
 
+                System.out.println("Usuário escolheu nenhuma das escolhas válidas");
 
           }
 
