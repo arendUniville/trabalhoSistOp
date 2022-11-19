@@ -12,7 +12,10 @@ public class App {
         frames[2] = new TheFrame(11, 2, 21, true, false);
         
         System.out.println("Tamanho: " + frames.length + "\n");
+
        
+
+        /*
         for(int b = 0; b < frames.length; b++){
 
             //System.out.print("Frame 1: " + "ID: " + frames[b].getIdFrame());
@@ -22,6 +25,7 @@ public class App {
             //System.out.println(" | BM: " + frames[b].getBm());
 
         }
+        */
 
 
         //Criando o objeto lista de frames.
@@ -59,7 +63,12 @@ public class App {
         int valorMenor;
         int valorMaior;
 
-        for(int x = 0; x < frames.length; x++){
+        int auxiliarIdAnterior;
+
+
+
+
+        for(int x = 0; x < (frames.length - 1); x++){
 
             System.out.println("X: " + x);
 
@@ -82,7 +91,6 @@ public class App {
                     valorMenor = valorAtual;
                     valorMaior = valorAnterior;
 
-                    valorAnterior = valorAtual; //Atribuindo o valor atual para o anterior.
 
                     if(i == 0){
 
@@ -90,7 +98,8 @@ public class App {
 
                     }else{
 
-                        idValorAnterior = (frames[i].getIdFrame() - 1);
+                        auxiliarIdAnterior = i - 1;
+                        idValorAnterior = (frames[auxiliarIdAnterior].getIdFrame());
 
                     }
 
@@ -124,12 +133,14 @@ public class App {
 
                     }
 
+                    valorAnterior = valorAtual; //Atribuindo o valor atual para o anterior.
+
+
                 }else{
 
                     valorMenor = valorAnterior; 
                     valorMaior = valorAtual;
 
-                    valorAnterior = valorAtual;
                     
                     if(i == 0){
 
@@ -137,7 +148,8 @@ public class App {
 
                     }else{
 
-                        idValorAnterior = (frames[i].getIdFrame() - 1);
+                        auxiliarIdAnterior = i - 1;
+                        idValorAnterior = (frames[auxiliarIdAnterior].getIdFrame());
 
                     }
 
@@ -174,6 +186,9 @@ public class App {
                         
 
                     }
+
+                    valorAnterior = valorAtual;
+
 
                 }
 
