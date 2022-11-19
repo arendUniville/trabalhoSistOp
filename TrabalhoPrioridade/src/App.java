@@ -68,12 +68,15 @@ public class App {
 
 
         //Voltas na lista de frames até que reste apenas 1 frames.
-        for(int x = 0; x < (frames.length - 1); x++){
+        for(int x = 0; x < arrayMyFrames.size(); x++){
 
             referenciaMenor = 1000000;
+            idValorAnterior = 0;
+            valorAnterior = 0;
+            indiceValorMenor = 0;
 
             //Volta na lista de frames para fazer todas as comparações.
-            for(int i = 0; i < frames.length; i++){
+            for(int i = 0; i < arrayMyFrames.size(); i++){
 
                 valorAtual = frames[i].getQuantReferencias();
 
@@ -117,14 +120,14 @@ public class App {
 
 
                     //Verifica se é a última volta no list para remover e mostrar o valor que será removido.
-                    if(i == (frames.length - 1)){
+                    if(i == (arrayMyFrames.size() - 1)){
 
-                        auxiliarIdAnterior = i - 1;
-                        arrayMyFrames.remove(auxiliarIdAnterior);
+                        arrayMyFrames.remove(indiceValorMenor);
 
                         System.out.println("\n================ARRAY "+i+"================");
                         System.out.println(arrayMyFrames);
                         System.out.println("====================================\n");
+                        System.out.println("Quantidade de frames: " + arrayMyFrames.size() + "\n");
 /*
                         System.out.println("------------------------------");
                         System.out.print("\nID Removido: " + idValorAnterior);
@@ -176,13 +179,14 @@ public class App {
                     System.out.println(" - Referencia Menor: " + referenciaMenor + "\n");
 */
 
-                    if(i == (frames.length - 1)){
+                    if(i == (arrayMyFrames.size() - 1)){
 
                         arrayMyFrames.remove(indiceValorMenor);
 
                         System.out.println("\n================ARRAY "+i+"================");
                         System.out.println(arrayMyFrames);
                         System.out.println("====================================\n");
+                        System.out.println("Quantidade de frames: " + arrayMyFrames.size() + "\n");
 /*
                         System.out.println("------------------------------");
                         System.out.print("ID Removido: " + idValorAnterior);
@@ -204,9 +208,8 @@ public class App {
 
             }
     
+            
         }
-
-        
 
     }
 
