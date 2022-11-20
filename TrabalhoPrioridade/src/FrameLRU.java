@@ -13,11 +13,11 @@ public class FrameLRU {
         frames[1] = new TheFrame(10, 11, 12, false, false);
         frames[2] = new TheFrame(11, 22, 22, true, false);
         frames[3] = new TheFrame(11, 33, 18, true, false);
-        frames[4] = new TheFrame(11, 47, 36, true, false);
+        frames[4] = new TheFrame(11, 47, 36, false, false);
         frames[5] = new TheFrame(11, 18, 65, true, false);
-        frames[6] = new TheFrame(11, 36, 35, true, false);
-        frames[7] = new TheFrame(11, 8, 2, true, false);
-        frames[8] = new TheFrame(11, 45, 8, true, false);
+        frames[6] = new TheFrame(11, 36, 35, true, true);
+        frames[7] = new TheFrame(11, 8, 2, true, true);
+        frames[8] = new TheFrame(11, 45, 8, false, false);
         frames[9] = new TheFrame(11, 2, 10, true, false);
         
         // Mostrando quantidade de objetos.

@@ -22,6 +22,7 @@ public class App {
 
             case 1:
 
+                
 
                 break;
 
@@ -43,6 +44,9 @@ public class App {
 
             case 4:
 
+                FrameNRU frameNRU = new FrameNRU();
+
+                FrameNRU.Main(args);
 
                 break;
 
