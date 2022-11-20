@@ -4,12 +4,19 @@ public class FrameNRU {
 
     public static void Main(String args[]) throws InterruptedException{
 
-        TheFrame frames[] = new TheFrame[3];
+        TheFrame frames[] = new TheFrame[10];
         
         //Adicionando informação aos atributos e criando os frames
         frames[0] = new TheFrame(12, 10, 20, true, true);
         frames[1] = new TheFrame(10, 11, 12, false, false);
-        frames[2] = new TheFrame(11, 22, 21, true, false);
+        frames[2] = new TheFrame(11, 22, 22, true, false);
+        frames[3] = new TheFrame(11, 33, 18, true, false);
+        frames[4] = new TheFrame(11, 47, 36, false, false);
+        frames[5] = new TheFrame(11, 18, 65, true, false);
+        frames[6] = new TheFrame(11, 36, 35, true, true);
+        frames[7] = new TheFrame(11, 8, 2, true, true);
+        frames[8] = new TheFrame(11, 45, 8, false, false);
+        frames[9] = new TheFrame(11, 2, 10, true, false);
 
         
         // Mostrando quantidade de objetos.
@@ -228,9 +235,25 @@ public class FrameNRU {
                         System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
                     System.out.println("-------------------------------------------\n");
 
+                    System.out.print("Array restante: ");
 
-                    
+                    for(int count = 0; count < arrayMyFrames.size(); count++){
 
+                        TheFrame parametroMeuObjetoInterno = arrayMyFrames.get(count);
+        
+                        if(count == 0){
+                            
+                            System.out.print("{ (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+        
+                        }else{
+        
+                            System.out.print(", (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+        
+                        }
+        
+                    }
+                    System.out.print(" }\n");
+                    System.out.println("-------------------------------------------\n");
 
                 }
 

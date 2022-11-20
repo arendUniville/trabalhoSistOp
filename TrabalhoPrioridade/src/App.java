@@ -14,9 +14,6 @@ public class App {
 
         int escolhaUsuario = leitorTeclado.nextInt();
 
-
-
-
         
         switch(escolhaUsuario) {
 
@@ -56,9 +53,6 @@ public class App {
                 System.out.println("Usuário escolheu nenhuma das escolhas válidas");
 
           }
-
-        
-
 
     }
 
