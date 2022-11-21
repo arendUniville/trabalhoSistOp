@@ -71,6 +71,8 @@ public class FrameNRU {
         boolean brValorAtual;
         boolean bmValorAtual;
 
+        int quantRemovido = 0;
+
 
         System.out.println("\n================ARRAY================");
         System.out.println(arrayMyFrames);
@@ -104,6 +106,9 @@ public class FrameNRU {
 
         for(int x = 0; x < quantidadeDeFrames; x++){
 
+            boolean isExistePrimeiroEncontrado = false;
+            int idPrimeiroEncontrado;
+
             for(int y = 0; y < arrayMyFrames.size(); y++){
 
                 TheFrame parametroMeuObjeto = arrayMyFrames.get(y);
@@ -124,73 +129,187 @@ public class FrameNRU {
                         System.out.println("Referência utilizada: (BR: "+brMelhorReferencia+") - (BM: "+bmMelhorReferencia+")");
 
                         arrayMyFrames.remove(indiceMelhorReferencia);
+                        quantRemovido += 1;
+
+                        System.out.println("Índice de remoção: "+quantRemovido);
 
                         System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
-                    System.out.println("-------------------------------------------");
 
+                        System.out.print("Array restante: ");
 
-                    System.out.print("Array restante: ");
+                        for(int count = 0; count < arrayMyFrames.size(); count++){
 
-                    for(int count = 0; count < arrayMyFrames.size(); count++){
-
-                        TheFrame parametroMeuObjetoInterno = arrayMyFrames.get(count);
-        
-                        if(count == 0){
-                            
-                            System.out.print("{ (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
-        
-                        }else{
-        
-                            System.out.print(", (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
-        
+                            TheFrame parametroMeuObjetoInterno = arrayMyFrames.get(count);
+            
+                            if(count == 0){
+                                
+                                System.out.print("{ (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+            
+                            }else{
+            
+                                System.out.print(", (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+            
+                            }
+            
                         }
-        
-                    }
-                    System.out.print(" }\n");
+                        System.out.print(" }\n");
                     System.out.println("-------------------------------------------\n");
 
                     break;
 
+                
+                //Verifica se uma das condições ou as duas são falsas.
                 }else if(!brValorAtual || !bmValorAtual){
 
-                    indiceMelhorReferencia = y;
-                    idMelhorReferencia = parametroMeuObjeto.getIdFrame();
-                    brMelhorReferencia = brValorAtual;
-                    bmMelhorReferencia = bmValorAtual;
 
-                    System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
-                        System.out.println("A melhor referência é a do frame id: " + idMelhorReferencia);
-                        System.out.println("Referência utilizada: (BR: "+brMelhorReferencia+") - (BM: "+bmMelhorReferencia+")");
+                    //Se nenhuma referência 'true/false' foi encontrado, ele atribui como encontrado.
+                    if(!isExistePrimeiroEncontrado){
 
-                        arrayMyFrames.remove(indiceMelhorReferencia);
+                        isExistePrimeiroEncontrado = true;
+                        idPrimeiroEncontrado = parametroMeuObjeto.getIdFrame();
+                        indiceMelhorReferencia = y;
 
-                        System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
-                    System.out.println("-------------------------------------------");
+                        //Verifica se é a última volta.
+                        if(y == (arrayMyFrames.size() - 1)){
+ 
+                            idMelhorReferencia = parametroMeuObjeto.getIdFrame();
+                            brMelhorReferencia = brValorAtual;
+                            bmMelhorReferencia = bmValorAtual;
+
+                            System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
+                                System.out.println("A melhor referência é a do frame id: " + idMelhorReferencia);
+                                System.out.println("Referência utilizada: (BR: "+brMelhorReferencia+") - (BM: "+bmMelhorReferencia+")");
+
+                                arrayMyFrames.remove(indiceMelhorReferencia);
+                                quantRemovido += 1;
+
+                                System.out.println("Índice de remoção: "+quantRemovido);
+
+                                System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
+
+                                System.out.print("Array restante: ");
+
+                                for(int count = 0; count < arrayMyFrames.size(); count++){
+
+                                    TheFrame parametroMeuObjetoInterno = arrayMyFrames.get(count);
+                    
+                                    if(count == 0){
+                                        
+                                        System.out.print("{ (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+                    
+                                    }else{
+                    
+                                        System.out.print(", (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+                    
+                                    }
+                    
+                                }
+                                System.out.print(" }\n");
+                            System.out.println("-------------------------------------------\n");
 
 
-                    System.out.print("Array restante: ");
+                            break;
 
-                    for(int count = 0; count < arrayMyFrames.size(); count++){
-
-                        TheFrame parametroMeuObjetoInterno = arrayMyFrames.get(count);
-        
-                        if(count == 0){
-                            
-                            System.out.print("{ (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
-        
-                        }else{
-        
-                            System.out.print(", (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
-        
                         }
-        
+
+                    }else{
+
+
+                        if(!isExistePrimeiroEncontrado){
+
+                            isExistePrimeiroEncontrado = true;
+                            idPrimeiroEncontrado = parametroMeuObjeto.getIdFrame();
+                            indiceMelhorReferencia = y;
+
+                            //Verifica se é a última volta. Se for, vai remover o primeira melhor referência que encontrou.
+                            if(y == (arrayMyFrames.size() - 1)){
+
+                                
+                                idMelhorReferencia = parametroMeuObjeto.getIdFrame();
+                                brMelhorReferencia = brValorAtual;
+                                bmMelhorReferencia = bmValorAtual;
+
+                                System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
+                                    System.out.println("A melhor referência é a do frame id: " + idMelhorReferencia);
+                                    System.out.println("Referência utilizada: (BR: "+brMelhorReferencia+") - (BM: "+bmMelhorReferencia+")");
+
+                                    arrayMyFrames.remove(indiceMelhorReferencia);
+                                    quantRemovido += 1;
+
+                                    System.out.println("Índice de remoção: "+quantRemovido);
+
+                                    System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
+
+                                    System.out.print("Array restante: ");
+
+                                    for(int count = 0; count < arrayMyFrames.size(); count++){
+
+                                        TheFrame parametroMeuObjetoInterno = arrayMyFrames.get(count);
+                        
+                                        if(count == 0){
+                                            
+                                            System.out.print("{ (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+                        
+                                        }else{
+                        
+                                            System.out.print(", (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+                        
+                                        }
+                        
+                                    }
+                                    System.out.print(" }\n");
+                                System.out.println("-------------------------------------------\n");
+
+                                break;
+
+                            }else{
+
+                                brMelhorReferencia = brValorAtual;
+                                bmMelhorReferencia = bmValorAtual;
+
+                                System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
+                                    System.out.println("A melhor referência é a do frame id: " + idPrimeiroEncontrado);
+                                    System.out.println("Referência utilizada: (BR: "+brMelhorReferencia+") - (BM: "+bmMelhorReferencia+")");
+
+                                    arrayMyFrames.remove(indiceMelhorReferencia);
+                                    quantRemovido += 1;
+
+                                    System.out.println("Índice de remoção: "+quantRemovido);
+
+                                    System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
+
+                                    System.out.print("Array restante: ");
+
+                                    for(int count = 0; count < arrayMyFrames.size(); count++){
+
+                                        TheFrame parametroMeuObjetoInterno = arrayMyFrames.get(count);
+                        
+                                        if(count == 0){
+                                            
+                                            System.out.print("{ (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+                        
+                                        }else{
+                        
+                                            System.out.print(", (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+                        
+                                        }
+                        
+                                    }
+                                    System.out.print(" }\n");
+                                System.out.println("-------------------------------------------\n");
+
+                                break;
+
+
+
+                            }
+
+                        }
+
                     }
-                    System.out.print(" }\n");
-                    System.out.println("-------------------------------------------\n");
-
-                    break;
 
 
+                //Verifica se chegou no final do de todas as possibilidades.
                 }else if(x == (quantidadeDeFrames -1 ) && arrayMyFrames.size() == 1){
 
                     indiceMelhorReferencia = y;
@@ -203,56 +322,59 @@ public class FrameNRU {
                         System.out.println("Referência utilizada: (BR: "+brMelhorReferencia+") - (BM: "+bmMelhorReferencia+")");
 
                         arrayMyFrames.remove(indiceMelhorReferencia);
+                        quantRemovido += 1;
+
+                        System.out.println("Índice de remoção: "+quantRemovido);
 
                         System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
-                    System.out.println("-------------------------------------------");
 
+                        System.out.print("Array restante: ");
 
-                    System.out.print("Array restante: ");
+                        for(int count = 0; count < arrayMyFrames.size(); count++){
 
-                    for(int count = 0; count < arrayMyFrames.size(); count++){
-
-                        TheFrame parametroMeuObjetoInterno = arrayMyFrames.get(count);
-        
-                        if(count == 0){
-                            
-                            System.out.print("{ (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
-        
-                        }else{
-        
-                            System.out.print(", (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
-        
+                            TheFrame parametroMeuObjetoInterno = arrayMyFrames.get(count);
+            
+                            if(count == 0){
+                                
+                                System.out.print("{ (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+            
+                            }else{
+            
+                                System.out.print(", (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+            
+                            }
+            
                         }
-        
-                    }
-                    System.out.print(" }\n");
-                    System.out.println("-------------------------------------------\n");                    
+                        System.out.print(" }\n");
+                    System.out.println("-------------------------------------------\n");   
+                    
+                    break;
 
                 }else{
 
                     System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
                         System.out.println("Não foi encontrada uma melhor referência no ID: "+idValorAtual);
+                        System.out.println("{ (BR: " + parametroMeuObjeto.getBm() + " - BM: " + parametroMeuObjeto.getBr() + ")");
                         System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
-                    System.out.println("-------------------------------------------\n");
 
-                    System.out.print("Array restante: ");
+                        System.out.print("Array restante: ");
 
-                    for(int count = 0; count < arrayMyFrames.size(); count++){
+                        for(int count = 0; count < arrayMyFrames.size(); count++){
 
-                        TheFrame parametroMeuObjetoInterno = arrayMyFrames.get(count);
-        
-                        if(count == 0){
-                            
-                            System.out.print("{ (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
-        
-                        }else{
-        
-                            System.out.print(", (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
-        
+                            TheFrame parametroMeuObjetoInterno = arrayMyFrames.get(count);
+            
+                            if(count == 0){
+                                
+                                System.out.print("{ (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+            
+                            }else{
+            
+                                System.out.print(", (ID: "+ parametroMeuObjetoInterno.getIdFrame() +" | BR: " + parametroMeuObjetoInterno.getBm() + " - BM: " + parametroMeuObjetoInterno.getBr() + ")");
+            
+                            }
+            
                         }
-        
-                    }
-                    System.out.print(" }\n");
+                        System.out.print(" }\n");
                     System.out.println("-------------------------------------------\n");
 
                 }
