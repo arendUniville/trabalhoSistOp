@@ -76,10 +76,11 @@ public class FrameNRU {
 
 
         //Declarando variáveis.
-        int indiceMelhorReferencia;
-        int idMelhorReferencia;
-        boolean brMelhorReferencia;
-        boolean bmMelhorReferencia;
+        int indiceMelhorReferencia = 0;
+        int indicePrimeiroEncontrado = 0;
+        int idMelhorReferencia = 0;
+        boolean brMelhorReferencia = true;
+        boolean bmMelhorReferencia = true;
 
         int idValorAtual;
         boolean brValorAtual;
@@ -121,7 +122,7 @@ public class FrameNRU {
         for(int x = 0; x < quantidadeDeFrames; x++){
 
             boolean isExistePrimeiroEncontrado = false;
-            int idPrimeiroEncontrado;
+            int idPrimeiroEncontrado = 0;
 
             for(int y = 0; y < arrayMyFrames.size(); y++){
 
@@ -130,21 +131,15 @@ public class FrameNRU {
                 idValorAtual = parametroMeuObjeto.getIdFrame();
                 brValorAtual = parametroMeuObjeto.getBr();
                 bmValorAtual = parametroMeuObjeto.getBm();
-
-                idMelhorReferencia = parametroMeuObjeto.getIdFrame();
-                indiceMelhorReferencia = y;
-
-                idPrimeiroEncontrado = parametroMeuObjeto.getIdFrame();
-
-                brMelhorReferencia = brValorAtual;
-                bmMelhorReferencia = bmValorAtual;
                 
+                
+                //Se BR e BM forem falsos.
                 if(!brValorAtual && !bmValorAtual){
 
                     indiceMelhorReferencia = y;
                     idMelhorReferencia = parametroMeuObjeto.getIdFrame();
-                    brMelhorReferencia = brValorAtual;
-                    bmMelhorReferencia = bmValorAtual;
+                    brMelhorReferencia = parametroMeuObjeto.getBr();
+                    bmMelhorReferencia = parametroMeuObjeto.getBm();
 
                     System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
                         System.out.println("A melhor referência é a do frame id: " + idMelhorReferencia);
@@ -189,14 +184,15 @@ public class FrameNRU {
 
                         isExistePrimeiroEncontrado = true;
                         idPrimeiroEncontrado = parametroMeuObjeto.getIdFrame();
-                        indiceMelhorReferencia = y;
+                        indicePrimeiroEncontrado = y;
+                        brMelhorReferencia = brValorAtual;
+                        bmMelhorReferencia = bmValorAtual;
 
                         //Verifica se é a última volta.
                         if(y == (arrayMyFrames.size() - 1)){
  
                             idMelhorReferencia = parametroMeuObjeto.getIdFrame();
-                            brMelhorReferencia = brValorAtual;
-                            bmMelhorReferencia = bmValorAtual;
+                            
 
                             System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
                                 System.out.println("A melhor referência é a do frame id: " + idMelhorReferencia);
@@ -229,6 +225,7 @@ public class FrameNRU {
                                 System.out.print(" }\n");
                             System.out.println("-------------------------------------------\n");
 
+                            isExistePrimeiroEncontrado = false;
 
                             break;
 
@@ -239,14 +236,11 @@ public class FrameNRU {
                         //Verifica se é a última volta. Se for, vai remover o primeira melhor referência que encontrou.
                         if(y == (arrayMyFrames.size() - 1)){
 
-                            brMelhorReferencia = brValorAtual;
-                            bmMelhorReferencia = bmValorAtual;
-
                             System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
-                                System.out.println("A melhor referência é a do frame id: " + idMelhorReferencia);
+                                System.out.println("A melhor referência é a do frame id: " + idPrimeiroEncontrado);
                                 System.out.println("Referência utilizada: (BR: "+brMelhorReferencia+") - (BM: "+bmMelhorReferencia+")");
 
-                                arrayMyFrames.remove(indiceMelhorReferencia);
+                                arrayMyFrames.remove(indicePrimeiroEncontrado);
                                 quantRemovido += 1;
 
                                 System.out.println("Índice de remoção: "+quantRemovido);
@@ -273,6 +267,8 @@ public class FrameNRU {
                                 System.out.print(" }\n");
                             System.out.println("-------------------------------------------\n");
 
+                            isExistePrimeiroEncontrado = false;
+
                             break;
 
                         }
@@ -281,6 +277,11 @@ public class FrameNRU {
 
 
                 //Verifica se chegou no final do de todas as possibilidades.
+                }else if(brValorAtual && bmValorAtual){
+                    
+                    
+                
+                
                 }else if(x == (quantidadeDeFrames -1 ) && arrayMyFrames.size() == 1){
 
                     indiceMelhorReferencia = y;
@@ -321,6 +322,7 @@ public class FrameNRU {
                     
                     break;
 
+                //Se BR e BM forem true.
                 }else{
 
                     System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
