@@ -142,7 +142,7 @@ public class FrameNRU {
                     bmMelhorReferencia = parametroMeuObjeto.getBm();
 
                     System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
-                        System.out.println("A melhor referência é a do frame id: " + idMelhorReferencia);
+                        System.out.println("1. A melhor referência é a do frame id: " + idMelhorReferencia);
                         System.out.println("Referência utilizada: (BR: "+brMelhorReferencia+") - (BM: "+bmMelhorReferencia+")");
 
                         arrayMyFrames.remove(indiceMelhorReferencia);
@@ -195,10 +195,10 @@ public class FrameNRU {
                             
 
                             System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
-                                System.out.println("A melhor referência é a do frame id: " + idMelhorReferencia);
+                                System.out.println("2. A melhor referência é a do frame id: " + idMelhorReferencia);
                                 System.out.println("Referência utilizada: (BR: "+brMelhorReferencia+") - (BM: "+bmMelhorReferencia+")");
 
-                                arrayMyFrames.remove(indiceMelhorReferencia);
+                                arrayMyFrames.remove(y);
                                 quantRemovido += 1;
 
                                 System.out.println("Índice de remoção: "+quantRemovido);
@@ -237,7 +237,7 @@ public class FrameNRU {
                         if(y == (arrayMyFrames.size() - 1)){
 
                             System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
-                                System.out.println("A melhor referência é a do frame id: " + idPrimeiroEncontrado);
+                                System.out.println("3. A melhor referência é a do frame id: " + idPrimeiroEncontrado);
                                 System.out.println("Referência utilizada: (BR: "+brMelhorReferencia+") - (BM: "+bmMelhorReferencia+")");
 
                                 arrayMyFrames.remove(indicePrimeiroEncontrado);
@@ -290,7 +290,7 @@ public class FrameNRU {
                     bmMelhorReferencia = bmValorAtual;
 
                     System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
-                        System.out.println("A referência restante possível a ser utilizada é a do frame id: " + idMelhorReferencia);
+                        System.out.println("4. A referência restante possível a ser utilizada é a do frame id: " + idMelhorReferencia);
                         System.out.println("Referência utilizada: (BR: "+brMelhorReferencia+") - (BM: "+bmMelhorReferencia+")");
 
                         arrayMyFrames.remove(indiceMelhorReferencia);
@@ -326,7 +326,7 @@ public class FrameNRU {
                 }else{
 
                     System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
-                        System.out.println("Não foi encontrada uma melhor referência no ID: "+idValorAtual);
+                        System.out.println("5. Não foi encontrada uma melhor referência no ID: "+idValorAtual);
                         System.out.println("{ (BR: " + parametroMeuObjeto.getBm() + " - BM: " + parametroMeuObjeto.getBr() + ")");
                         System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
 
