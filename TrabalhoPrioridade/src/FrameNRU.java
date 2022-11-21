@@ -276,6 +276,11 @@ public class FrameNRU {
                     }
 
 
+                //Se BR e BM forem true.
+                }else if(brValorAtual && bmValorAtual){
+                    
+                    
+                
                 //Verifica se chegou no final do de todas as possibilidades.
                 }else if(x == (quantidadeDeFrames -1 ) && arrayMyFrames.size() == 1){
 
@@ -317,7 +322,6 @@ public class FrameNRU {
                     
                     break;
 
-                
                 }else{
 
                     System.out.println("-----------------X: "+x+" Y: "+y+"-----------------");
@@ -345,20 +349,9 @@ public class FrameNRU {
                         System.out.print(" }\n");
                     System.out.println("-------------------------------------------\n");
 
+
                 }
-
-
-                //Se BR e BM forem true.
-                if(brValorAtual && bmValorAtual){
-                    
-                    
-                
-                
-                }
-
             }
         }
-
     }
-    
 }
