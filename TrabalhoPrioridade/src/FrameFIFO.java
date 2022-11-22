@@ -7,17 +7,10 @@ public class FrameFIFO {
         // Criando objeto.
         TheFrame frames[] = new TheFrame[3];
         
-        //Adicionando informação aos atributos e criando os frames
-        frames[0] = new TheFrame(0, 10, 20, true, true);
-        frames[1] = new TheFrame(1, 11, 12, false, false);
-        frames[2] = new TheFrame(2, 22, 22, true, false);
-        frames[3] = new TheFrame(3, 33, 18, true, false);
-        frames[4] = new TheFrame(4, 47, 36, false, false);
-        frames[5] = new TheFrame(5, 18, 65, true, false);
-        frames[6] = new TheFrame(6, 36, 35, true, true);
-        frames[7] = new TheFrame(7, 8, 2, true, true);
-        frames[8] = new TheFrame(8, 45, 8, false, false);
-        frames[9] = new TheFrame(9, 2, 10, true, false);
+        //Adicionando informação aos atributos e criando os frames. Você pode colocar quantas quiser.
+        frames[0] = new TheFrame(1, 10, 20, true, true);
+        frames[1] = new TheFrame(2, 1, 12, false, false);
+        frames[2] = new TheFrame(3, 2, 21, true, false);
         
         // Mostrando quantidade de objetos.
         System.out.println("\n\nQuantidade de frames: " + frames.length + "\n");        
@@ -59,29 +52,26 @@ public class FrameFIFO {
 
         }   
 
-
-        System.out.println("\n================ARRAY================");
-        System.out.println(arrayMyFrames);
-        System.out.println("====================================\n");
-
-        System.out.print("================ Array de referências ================");
+        //Aqui é mostrado o valor que interessa para a priorização do sistema.
+        System.out.print("================ Array de referências ================\n");
             for(int count = 0; count < arrayMyFrames.size(); count++){
 
                 TheFrame parametroMeuObjeto = arrayMyFrames.get(count);
 
                 if(count == 0){
                     
-                    System.out.print("{ "+ count +" (BR: " + parametroMeuObjeto.getBm() + ") - (BM: " + parametroMeuObjeto.getBr() + ")");
+                    System.out.print("{ "+ count +" (Index: " + arrayMyFrames.get(count));
 
                 }else{
 
-                    System.out.print(", (BR: " + parametroMeuObjeto.getBm() + ") - (BM: " + parametroMeuObjeto.getBr() + ")");
+                    System.out.print(", "+ count +" (Index: " + arrayMyFrames.get(count));
 
                 }
 
             }
             System.out.println(" }");
         System.out.println("====================================\n");
+
 
 
 

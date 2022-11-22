@@ -19,7 +19,9 @@ public class App {
 
             case 1:
 
-                
+                FrameFIFO frameFIFO = new FrameFIFO();
+
+                FrameFIFO.Main(args);                
 
                 break;
 
