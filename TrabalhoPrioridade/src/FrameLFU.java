@@ -151,7 +151,8 @@ public class FrameLFU {
 
                         arrayMyFrames.remove(indiceValorMenor);
 
-                        System.out.print("\n["+(x + 1)+"°]================ Menor quantidade de referência utilizada: " + referenciaMenor + " ================\n");
+                        System.out.print("\n["+(x + 1)+"°]==============================\n");
+                        System.out.println("Menor quantidade de referência utilizada:" + referenciaMenor);
                         System.out.println("Quantidade de frames restantes: " + arrayMyFrames.size());  
                         
                         System.out.print("Lista de referências: ");
