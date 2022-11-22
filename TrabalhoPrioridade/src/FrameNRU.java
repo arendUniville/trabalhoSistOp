@@ -11,10 +11,7 @@ public class FrameNRU {
         frames[0] = new TheFrame(0, 10, 20, true, true);
         frames[1] = new TheFrame(2, 22, 22, true, false);
         frames[2] = new TheFrame(3, 33, 18, true, false);
-        frames[3] = new TheFrame(5, 18, 65, true, false);
-        frames[4] = new TheFrame(6, 36, 35, true, true);
-        frames[5] = new TheFrame(7, 8, 2, true, true);
-        frames[6] = new TheFrame(9, 2, 10, true, false);
+ 
 
 
 
@@ -47,7 +44,7 @@ public class FrameNRU {
         }
 
 
-        System.out.println("\n========= Iniciando modelo LFU =========\n");
+        System.out.println("\n========= Iniciando modelo NRU =========");
 
         for(int count = 1; count <= 3; count++){
 
@@ -93,7 +90,7 @@ public class FrameNRU {
         System.out.println(arrayMyFrames);
         System.out.println("====================================\n");
 
-        System.out.print("\n================ Array de referências ================\n");
+        System.out.print("================ Array de referências ================");
             for(int count = 0; count < arrayMyFrames.size(); count++){
 
                 TheFrame parametroMeuObjeto = arrayMyFrames.get(count);
@@ -109,7 +106,7 @@ public class FrameNRU {
                 }
 
             }
-            System.out.print(" }\n");
+            System.out.println(" }");
         System.out.println("====================================\n");
 
 
@@ -177,7 +174,6 @@ public class FrameNRU {
                 
                 //Verifica se uma das condições ou as duas são falsas.
                 }else if(!brValorAtual || !bmValorAtual){
-
 
                     //Se nenhuma referência 'true/false' foi encontrado, ele atribui como encontrado.
                     if(!isExistePrimeiroEncontrado){

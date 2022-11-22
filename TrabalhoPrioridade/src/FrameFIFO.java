@@ -33,14 +33,14 @@ public class FrameFIFO {
         }
 
         
-        System.out.println("\n========= Iniciando modelo LFU =========\n");
+        System.out.println("\n========= Iniciando modelo FIFO =========\n");
 
         for(int count = 1; count <= 3; count++){
 
             if(count == 3){
 
                 System.out.println(count+".");
-                Thread.sleep(2200);
+                Thread.sleep(1500);
 
             }else{
 
@@ -58,6 +58,35 @@ public class FrameFIFO {
             System.out.println();
 
         }   
+
+
+        System.out.println("\n================ARRAY================");
+        System.out.println(arrayMyFrames);
+        System.out.println("====================================\n");
+
+        System.out.print("================ Array de referências ================");
+            for(int count = 0; count < arrayMyFrames.size(); count++){
+
+                TheFrame parametroMeuObjeto = arrayMyFrames.get(count);
+
+                if(count == 0){
+                    
+                    System.out.print("{ "+ count +" (BR: " + parametroMeuObjeto.getBm() + ") - (BM: " + parametroMeuObjeto.getBr() + ")");
+
+                }else{
+
+                    System.out.print(", (BR: " + parametroMeuObjeto.getBm() + ") - (BM: " + parametroMeuObjeto.getBr() + ")");
+
+                }
+
+            }
+            System.out.println(" }");
+        System.out.println("====================================\n");
+
+
+
+
+
 
     }
     
