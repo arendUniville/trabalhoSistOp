@@ -6,7 +6,7 @@ public class FrameLFU {
         
 
         // Criando objeto.
-        TheFrame frames[] = new TheFrame[10];
+        TheFrame frames[] = new TheFrame[3];
         
         //Adicionando informação aos atributos e criando os frames. Você pode colocar quantas quiser.
         frames[0] = new TheFrame(1, 10, 20, true, true);
